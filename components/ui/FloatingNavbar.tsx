@@ -6,7 +6,6 @@ import {
   useScroll,
   useMotionValueEvent,
 } from "framer-motion";
-// import { Link } from "react-router-dom";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
@@ -27,9 +26,16 @@ export const FloatingNav = ({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
-    if (typeof current === "number") {
-      let direction = current - scrollYProgress.getPrevious();
-      setVisible(scrollYProgress.get() < 0.05 || direction < 0);
+    const previous = scrollYProgress.getPrevious();
+    const currentProgress = scrollYProgress.get();
+
+    if (
+      typeof current === "number" &&
+      previous !== undefined &&
+      currentProgress !== undefined
+    ) {
+      const direction = current - previous;
+      setVisible(currentProgress < 0.05 || direction < 0);
     }
   });
 
