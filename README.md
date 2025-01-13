@@ -1,3 +1,3 @@
 # IIE CELL WCE SANGLI
 
-Developed by Web Team ( web team - Arth Kulkarni , Teerth Kulkarni )
+Developed by Web Team ( Arth Kulkarni(Web Lead) , Teerth Kulkarni(UI / UX Lead) )
